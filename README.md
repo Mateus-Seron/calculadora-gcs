@@ -9,7 +9,6 @@
 - Enzo Euvine Cunha Neves
 - João Vitor Costa Braga
 - Lucas Gabriel de Almeida Souza
-- Louise Mayumi Takigawa Pereira
 - Mariana Paulino da Silva
 
 ## Repositório
