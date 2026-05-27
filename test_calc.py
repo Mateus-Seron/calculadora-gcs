@@ -1,7 +1,56 @@
 import unittest
 
 from calc_percentual import percentual, acrescimo, desconto
+from calc_basico import somar, subtrair, multiplicar, dividir
 from calc_estatistica import media, mediana, desvio_padrao
+
+#Módulo A - Casos de Testes para opreações básicas
+class TestesModuloCalcBasico(unittest.TestCase):
+    # Soma: Caso de Sucesso
+    def test_somar(self):
+        self.assertEqual(somar(2, 3), 5)
+
+    # Soma: Caso de Erro com string
+    def test_somar_string(self):
+        self.assertEqual(somar("a", 3), "Erro: os valores passados devem ser números.")
+        self.assertEqual(somar(2, "b"), "Erro: os valores passados devem ser números.")
+        self.assertEqual(somar("a", "b"), "Erro: os valores passados devem ser números.")
+
+    # Subtração: Caso de Sucesso
+    def test_subtrair(self):
+        self.assertEqual(subtrair(5, 2), 3)
+
+    # Subtração: Caso de Erro com string
+    def test_subtrair_string(self):
+        self.assertEqual(subtrair("a", 2), "Erro: os valores passados devem ser números.")
+        self.assertEqual(subtrair(5, "b"), "Erro: os valores passados devem ser números.")
+        self.assertEqual(subtrair("a", "b"), "Erro: os valores passados devem ser números.")
+
+    # Multiplicação: Caso de Sucesso
+    def test_multiplicar(self):
+        self.assertEqual(multiplicar(4, 3), 12)
+
+    # Multiplicação: Caso de Erro com string
+    def test_multiplicar_string(self):
+        self.assertEqual(multiplicar("a", 3), "Erro: os valores passados devem ser números.")
+        self.assertEqual(multiplicar(4, "b"), "Erro: os valores passados devem ser números.")
+        self.assertEqual(multiplicar("a", "b"), "Erro: os valores passados devem ser números.")
+
+
+    # Divisão: Caso de Sucesso
+    def test_dividir(self):
+        self.assertEqual(dividir(10, 2), 5)
+
+    # Divisão: Caso de Erro com string
+    def test_dividir_string(self):
+        self.assertEqual(dividir("a", 2), "Erro: os valores passados devem ser números.")
+        self.assertEqual(dividir(10, "b"), "Erro: os valores passados devem ser números.")
+        self.assertEqual(dividir("a", "b"), "Erro: os valores passados devem ser números.")
+
+    # Divisão: Caso de Erro com divisão por zero
+    def test_dividir_por_zero(self):
+        self.assertEqual(dividir(10, 0), "Não é possível dividir por zero")
+
 
 # Módulo C — Casos de testes para operações percentuais
 class TestesModuloCalcPercentual(unittest.TestCase):
