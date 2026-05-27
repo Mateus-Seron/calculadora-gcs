@@ -11,10 +11,10 @@ def km_para_milhas(km):
     # Função que retorna a conversão de quilômetros para milhas.
     if km < 0:
         raise ValueError("Valores negativos são inválidos.")
-    return km * 0.6213
+    return km * 0.621
 
 def kg_para_libras(kg):
     # Função que retorna a conversão de quilogramas para libras.
     if kg < 0:
         raise ValueError("Valores negativos são inválidos.")
-    return kg * 2.2046
+    return kg * 2.204
