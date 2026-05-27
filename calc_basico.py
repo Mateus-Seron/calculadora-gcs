@@ -1,34 +1,33 @@
-#Módulo A - Cálculos Básicos
-#Autor: João Vitor Costa Braga
+# Módulo A - Cálculos Básicos
+# Autor: João Vitor Costa Braga
 # Branch: feature/modulo-basico
 
-
-def soma(a, b):
-    try:
-        return a + b
-    except TypeError:
+def somar(a, b):
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
         return "Erro: os valores passados devem ser números."
 
+    return a + b
 
-def subtracao(a, b):
-    try:
-        return a - b
-    except TypeError:
+
+def subtrair(a, b):
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
         return "Erro: os valores passados devem ser números."
 
+    return a - b
 
-def multiplicacao(a, b):
-    try:
-        return a * b
-    except TypeError:
+
+def multiplicar(a, b):
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
         return "Erro: os valores passados devem ser números."
 
+    return a * b
 
-def divisao(a, b):
-    try:
-        if b == 0:
-            raise ValueError("Não é possível dividir por zero")
 
-        return a / b
-    except TypeError:
+def dividir(a, b):
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
         return "Erro: os valores passados devem ser números."
+
+    if b == 0:
+        return "Erro: não é possível dividir por zero."
+
+    return a / b
