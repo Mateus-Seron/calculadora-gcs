@@ -3,6 +3,7 @@ import unittest
 from calc_percentual import percentual, acrescimo, desconto
 from calc_basico import somar, subtrair, multiplicar, dividir
 from calc_estatistica import media, mediana, desvio_padrao
+from calc_conversao import celsius_para_fahrenheit, km_para_milhas, kg_para_libras
 
 #Módulo A - Casos de Testes para opreações básicas
 class TestesModuloCalcBasico(unittest.TestCase):
@@ -125,6 +126,35 @@ class TestesModuloCalcEstatistica(unittest.TestCase):
     # Desvio Padrão: Caso de Erro com lista contendo uma letra
     def test_desvio_padrao_lista_letra(self):
         self.assertEqual(desvio_padrao("a"), 0)
+
+# Módulo E — Casos de testes para operações de conversão
+class TestesModuloCalcConversao(unittest.TestCase):
+
+    # Celsius para Fahrenheit: Caso de Sucesso
+    def test_celsius_para_fahrenheit(self):
+        self.assertEqual(celsius_para_fahrenheit(0), 32)
+
+    # Celsius para Fahrenheit: Caso de Sucesso com valor negativo
+    def test_celsius_para_fahrenheit(self):
+        self.assertEqual(celsius_para_fahrenheit(-35.5), -31.9)
+
+    # Km para Milhas: Caso de Sucesso
+    def test_km_para_milhas(self):
+        self.assertEqual(km_para_milhas(50), 31.05)
+
+    # Kg para Libras: Caso de Erro com valor negativo
+    def test_kg_para_libras_negativo(self):
+        with self.assertRaises(ValueError):
+            kg_para_libras(-50)
+
+    # Kg para Libras: Caso de Sucesso
+    def test_kg_para_libras(self):
+        self.assertEqual(kg_para_libras(125.75), 277.153)
+
+    # Kg para Libras: Caso de Erro com valor negativo
+    def test_kg_para_libras_zero(self):
+        with self.assertRaises(ValueError):
+            kg_para_libras(-99.99)
 
 if __name__ == "__main__":
     unittest.main()
