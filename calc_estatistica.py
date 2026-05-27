@@ -4,11 +4,15 @@
 # Branch: feature/modulo-estatistica
 
 def media(lista):
+    if isinstance(lista, str):
+        return 0
     if not lista:
         return 0
     return sum(lista) / len(lista) 
 
 def mediana(lista):
+    if isinstance(lista, str):
+        return 0
     if not lista:
         return 0
     sorted_lista = sorted(lista)
@@ -19,6 +23,8 @@ def mediana(lista):
         return sorted_lista[n//2]
 
 def desvio_padrao(lista):
+    if isinstance(lista, str):
+        return 0
     if not lista:
         return 0
     m = media(lista)
