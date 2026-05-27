@@ -1,5 +1,6 @@
 import unittest
 
+from calc_percentual import percentual, acrescimo, desconto
 from calc_basico import somar, subtrair, multiplicar, dividir
 from calc_estatistica import media, mediana, desvio_padrao
 
@@ -50,6 +51,36 @@ class TestesModuloCalcBasico(unittest.TestCase):
     def test_dividir_por_zero(self):
         self.assertEqual(dividir(10, 0), "Não é possível dividir por zero")
 
+
+# Módulo C — Casos de testes para operações percentuais
+class TestesModuloCalcPercentual(unittest.TestCase):
+
+    # Percentual: Caso de Sucesso
+    def test_percentual(self):
+        self.assertEqual(percentual(100, 10), 10)
+
+    # Percentual: Caso de Erro com porcentagem negativa
+    def test_percentual_porcentagem_negativa(self):
+        with self.assertRaises(ValueError):
+            percentual(100, -10)
+
+    # Acréscimo: Caso de Sucesso
+    def test_acrescimo(self):
+        self.assertEqual(acrescimo(250, 25.50), 313.75)
+
+    # Acréscimo: Caso de Erro com porcentagem negativa
+    def test_acrescimo_porcentagem_negativa(self):
+        with self.assertRaises(ValueError):
+            acrescimo(250, -25.50)
+
+    # Desconto: Caso de Sucesso
+    def test_desconto(self):
+        self.assertEqual(desconto(1, 10), 0.9)
+
+    # Desconto: Caso de Erro com porcentagem negativa
+    def test_desconto_porcentagem_negativa(self):
+        with self.assertRaises(ValueError):
+            desconto(1, -10)
 
 # Módulo D — Casos de testes para operações de estatísticas
 class TestesModuloCalcEstatistica(unittest.TestCase):
