@@ -4,6 +4,7 @@ from calc_percentual import percentual, acrescimo, desconto
 from calc_basico import somar, subtrair, multiplicar, dividir
 from calc_estatistica import media, mediana, desvio_padrao
 from calc_conversao import celsius_para_fahrenheit, km_para_milhas, kg_para_libras
+from calc_potencia import potencia, raiz_quadrada, raiz_cubica
 
 #Módulo A - Casos de Testes para opreações básicas
 class TestesModuloCalcBasico(unittest.TestCase):
@@ -51,6 +52,29 @@ class TestesModuloCalcBasico(unittest.TestCase):
     # Divisão: Caso de Erro com divisão por zero
     def test_dividir_por_zero(self):
         self.assertEqual(dividir(10, 0), "Não é possível dividir por zero")
+
+# Módulo B — Casos de testes para operações de potencia
+class TestesModuloCalcPotencia(unittest.TestCase):
+
+    # Potência: Caso de Sucesso
+    def test_potencia(self):
+        self.assertEqual(potencia(2, 3), 8)
+
+    # Potência: Caso de Erro com base zero e expoente negativo
+    def test_potencia_base_zero_expoente_negativo(self):
+        self.assertEqual(potencia(0, -1), "Valores inválidos.")
+
+    # Raiz Quadrada: Caso de Sucesso
+    def test_raiz_quadrada(self):
+        self.assertEqual(raiz_quadrada(16), 4)
+
+    # Raiz Quadrada: Caso de Erro com valor negativo
+    def test_raiz_quadrada_valor_negativo(self):
+        self.assertEqual(raiz_quadrada(-1), "Valor negativo.")
+
+    # Raiz Cúbica: Caso de Sucesso
+    def test_raiz_cubica(self):
+        self.assertEqual(raiz_cubica(27), 3)
 
 
 # Módulo C — Casos de testes para operações percentuais
